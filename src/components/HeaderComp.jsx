@@ -8,7 +8,7 @@ export default function HeaderComp(){
             </div>
             <div className="flex justify-end w-50">
                 <Link className="me-5" to="/">Home</Link>
-                <NavLink to="/post">Posts</NavLink>
+                <Link to="/post">Posts</Link>
             </div>
         </header>
     );

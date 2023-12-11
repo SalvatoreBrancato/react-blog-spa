@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 export default function CardComp(){
 
@@ -18,9 +19,11 @@ export default function CardComp(){
             {posts.map((elem)=>{
                 return(
                     <div key={elem.id} className="w-1/6 h-96 border border-indigo-500 m-2">
-                        <img src={elem.image} className="w-full h-3/4" alt="" />
-                        <h2 className="capitalize" key={elem.id}>{elem.title}</h2>
-                        <p>{elem.content}</p>
+                        <Link to={elem.slug}>
+                            <img src={elem.image} className="w-full h-3/4" alt="" />
+                            <h2 className="capitalize" key={elem.id}>{elem.title}</h2>
+                            <p>{elem.content}</p>
+                        </Link>
                     </div>
                 )
             })}
