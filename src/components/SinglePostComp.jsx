@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate ,useParams } from "react-router-dom";
 
 export default function SinglePostComp() {
 
@@ -16,6 +16,8 @@ export default function SinglePostComp() {
     // Solo al primo rendering
     useEffect(apiSinglePost, []);
 
+    const navigate = useNavigate();
+
     return (
         <>
             <div key={singlePost.id} className="w-1/6 h-4/6 border border-indigo-500 m-2">
@@ -23,6 +25,7 @@ export default function SinglePostComp() {
                 <h2 className="capitalize" key={singlePost.id}>{singlePost.title}</h2>
                 <p>{singlePost.content}</p>
             </div>
+            <button onClick={()=>navigate(-1)}> 🔙Torna alla pagina precedente</button>
         </>
     );
 }
